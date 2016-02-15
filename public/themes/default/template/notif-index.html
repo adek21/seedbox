@@ -1,0 +1,40 @@
+{% if post.reboot is defined and rebootRtorrent.statusReboot == 0 %}
+    <div class="alert alert-success">Sesja rtorrent została uruchomiona pomyślnie.</div>
+{% elseif post.reboot is defined and rebootRtorrent.statusReboot != 0 %}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Wystąpił problem podczas uruchamiania rtorrent,</strong> sprawdź swoją konfigurację.
+    </div>
+{% endif %}
+{% if post.reboot is defined and rebootRtorrent.statusReboot == 0 %}
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>Log :</h4>
+        <strong>komenda wykonana : </strong>reboot-rtorrent {{ userName }}<br>
+        <strong>status :</strong> {{ rebootRtorrent.statusReboot }}<br>
+        <strong>wyjście poleceń :</strong> <br>
+        {% for logs in rebootRtorrent.logReboot %}
+            # {{ logs }}<br>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if post.support is defined and supportTicketSend == true %}
+    <div class="alert alert-success">Twój bilet został wysłany.</div>
+{% elseif post.cloture is defined and supportTicketClose == true %}
+    <div class="alert alert-success">Bilet został zamknięty.</div>
+{% elseif post.cloture is defined and supportTicketClose == false %}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Nie zamykaj biletu </strong>, należy sprawdzić konfigurację.
+    </div>
+{% endif %}
+
+{% if serveur.CheckUpdate != false %}
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>Nowa wersja jest dostępna! (v{{ serveur.CheckUpdate.version }})</h4>
+        <ul>{% for new in serveur.CheckUpdate.news %}<li class="text-info">{{ new }}</li>{% endfor %}</ul>
+        <small style="display:block;margin-top:5px;">Participants: {{ serveur.CheckUpdate.contributors }}</small>
+    </div>
+{% endif %}

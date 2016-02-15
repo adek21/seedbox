@@ -1,0 +1,11 @@
+{% if post.conf_user is defined and updateIniFileLogUser == true %}
+    <div class="alert alert-success">Twoje preferencje zostały pomyślnie zaktualizowane.</div>
+{% elseif post.conf_user is defined and updateIniFileLogUser == false %}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4>Nie udało się zaktualizować konfiguracji!</h4>
+        <ul class="text-danger">
+            <li>Sprawdź, czy masz dostęp do zapisu</li>
+        </ul>
+    </div>
+{% endif %}

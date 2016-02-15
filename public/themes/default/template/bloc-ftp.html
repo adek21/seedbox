@@ -1,0 +1,23 @@
+<article class="col-md-6" id="bloc-ftp">
+    <div class="well well-sm">
+        <h4 class="titre-head"><i class="fa fa-link"></i> Dostęp za pomocą ftp - sftp - transdroid</h4>
+        <div class="trait"></div>
+
+        <h5 class="device"><i class="fa fa-desktop"></i> <strong>Serwer FTP oraz sFTP</strong></h5>
+        <ul>
+            <li>Adres (s)FTP : <em>(s)ftp://{{ host }}</em></li>
+            <li>Użytkownik (s)FTP : <em>{{ userName }}</em></li>
+            <li>Port FTP : <em>{{ user.portFtp }}</em></li>
+            <li>Port sFTP : <em>{{ user.portSftp }}</em></li>
+            <li><a class="btn btn-info btn-xs" href="http://filezilla.pl"><i class="glyphicon glyphicon-download-alt"></i> Pobierz filezilla</a></li>
+        </ul>
+
+        <h5 class="device"><i class="fa fa-android"></i> <strong>Aplikacja Transdroid</strong></h5>
+        <ul>
+            <li>Katalog SCGI : <em><strong>{{ user.scgi_folder }}</strong></em></li>
+            <li>Adres http : <em>http://{{ host }}</em></li>
+            <li>Użytkownik transdroid : <em>{{ userName }}</em></li>
+            <li><a class="btn btn-info btn-xs" href="http://transdroid.org/latest"><i class="glyphicon glyphicon-download-alt"></i> Pobierz Transdroid</a></li>
+        </ul>
+    </div>
+</article>
